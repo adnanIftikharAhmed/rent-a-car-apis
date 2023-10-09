@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vehicle_models",
+  "info": {
+    "singularName": "vehicle-model",
+    "pluralName": "vehicle-models",
+    "displayName": "Vehicle Model",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "vehicle_brand": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vehicle-brand.vehicle-brand",
+      "inversedBy": "vehicle_models"
+    },
+    "vehicle_variants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::vehicle-variant.vehicle-variant",
+      "mappedBy": "vehicle_model"
+    }
+  }
+}

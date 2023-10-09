@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vehicle_variants",
+  "info": {
+    "singularName": "vehicle-variant",
+    "pluralName": "vehicle-variants",
+    "displayName": "Vehicle Variant  ",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Transmission": {
+      "type": "enumeration",
+      "enum": [
+        "Auto",
+        "Manual"
+      ]
+    },
+    "EngineType": {
+      "type": "enumeration",
+      "enum": [
+        "Petrol",
+        "Diesel"
+      ]
+    },
+    "SittingCapacity": {
+      "type": "integer",
+      "required": true
+    },
+    "FuelAvg": {
+      "type": "integer"
+    },
+    "Steering": {
+      "type": "enumeration",
+      "enum": [
+        "Power",
+        "Manual"
+      ]
+    },
+    "CoverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "OtherImages": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "vehicle_model": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vehicle-model.vehicle-model",
+      "inversedBy": "vehicle_variants"
+    }
+  }
+}
